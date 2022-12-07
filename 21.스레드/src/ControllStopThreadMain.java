@@ -12,7 +12,6 @@ public class ControllStopThreadMain {
 		Thread.sleep(5000);
 		cst2.setPlay(false);
 		Thread.sleep(10000);
-		System.out.println("stop");
 
 
 		System.out.println("main ret urn");

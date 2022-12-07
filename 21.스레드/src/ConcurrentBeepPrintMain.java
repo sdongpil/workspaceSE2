@@ -17,6 +17,7 @@ public class ConcurrentBeepPrintMain {
 		printThread.start();
 
 		System.out.println("9.main end  jvm return");
+		System.out.println("rㅣㅅ");
 
 	}
 

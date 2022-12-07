@@ -3,12 +3,12 @@ public class MemberFieldMain {
 
 	public static void main(String[] args) {
 		
-		MemberField mf1;
+		MemberField1 mf1;
 		
 		/*
 		 * MemberField 클래스 틀로 객체생성후에 mf에 객체의 값이 대입
 		 */
-		mf1 = new MemberField();
+		mf1 = new MemberField1();
 		
 		
 		//mf객체의 int타입의 멤버변수 1에 77값을 대입 
@@ -18,7 +18,7 @@ public class MemberFieldMain {
 		mf1.member1 = 77;
 		mf1.member2 = 3.14;
 		mf1.member3 = 'a';
-		mf1.member4 = "ㄱㄴㄷ";
+		mf1.member4 = true;
 		
 		
 		//mf객체의 멤버변수 member1값의 출력
@@ -28,11 +28,11 @@ public class MemberFieldMain {
 		System.out.println(mf1.member2);
 		System.out.println(mf1.member3);
 		
-		MemberField mf2 = new MemberField();
+		MemberField1 mf2 = new MemberField1();
 		mf2.member1 =88;
 		mf2.member2 = 3.14;
 		mf2.member3 = 'r';
-		mf2.member4 = "abc";
+		mf2.member4 = true;
 		System.out.println(mf2.member1);
 		System.out.println(mf2.member2);
 		System.out.println(mf2.member3);

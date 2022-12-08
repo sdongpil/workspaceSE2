@@ -1,3 +1,3 @@
 # workspaceSE2
-kkk
-git 연습
+- kkk
+- git 연습

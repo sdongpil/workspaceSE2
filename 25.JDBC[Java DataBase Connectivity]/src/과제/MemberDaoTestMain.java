@@ -23,6 +23,8 @@ public class MemberDaoTestMain {
 		System.out.println("4.selectAll--> ");
 		
 		
+		
+		
 	}
 
 }

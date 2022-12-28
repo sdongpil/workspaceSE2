@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GridLayoutJFrame extends JFrame {
 
@@ -61,6 +63,10 @@ public class GridLayoutJFrame extends JFrame {
 		contentPane.add(btnNewButton_6);
 		
 		JButton btnNewButton_7 = new JButton("-");
+		btnNewButton_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		contentPane.add(btnNewButton_7);
 		
 		JButton btnNewButton_8 = new JButton("7");

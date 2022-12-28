@@ -12,10 +12,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Jframe extends JFrame {
+public class ChatJframe extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JLabel chtta;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -24,7 +26,7 @@ public class Jframe extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Jframe frame = new Jframe();
+					ChatJframe frame = new ChatJframe();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +38,7 @@ public class Jframe extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Jframe() {
+	public ChatJframe() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 461, 497);
 		contentPane = new JPanel();
@@ -54,7 +56,7 @@ public class Jframe extends JFrame {
 		panel_1.add(textField);
 		textField.setColumns(30);
 		
-		JButton btnNewButton = new JButton("검색");
+		btnNewButton = new JButton("검색");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -66,10 +68,13 @@ public class Jframe extends JFrame {
 		panel.setBounds(12, 10, 421, 70);
 		contentPane.add(panel);
 		
-		JLabel lblNewLabel = new JLabel("ㄱㄱㄱㄱㄱ\r\nㄴㄴㄴㄴ\r\nㅋㅋ\r\nㅇㅇ\r\n");
-		lblNewLabel.setBackground(new Color(0, 255, 0));
-		lblNewLabel.setBounds(12, 90, 421, 308);
-		contentPane.add(lblNewLabel);
+		chtta = new JLabel("ㄱㄱㄱㄱㄱ\r\nㄴㄴㄴㄴ\r\nㅋㅋ\r\nㅇㅇ\r\n");
+		chtta.setBackground(new Color(0, 255, 0));
+		chtta.setBounds(12, 90, 421, 308);
+		contentPane.add(chtta);
+		/*
+		 *
+		 */
 	}
 
 }

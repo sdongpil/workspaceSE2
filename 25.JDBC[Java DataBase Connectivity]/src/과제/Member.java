@@ -5,12 +5,12 @@ public class Member {
 	
 	/*
 	VO(Value Object),DTO(Data Transfer Object)
-		- member 테이블 1개 row의 데이타의 값을 가지는객체
-		- member 테이블 1개 row의 데이타값을 이동(파라메타,리턴데이타)시키기위한객체 
-		- member 테이블의 컬럼과 동일한수의 멤버변수를가지는객체
+		- member �뀒�씠釉� 1媛� row�쓽 �뜲�씠���쓽 媛믪쓣 媛�吏��뒗媛앹껜
+		- member �뀒�씠釉� 1媛� row�쓽 �뜲�씠��媛믪쓣 �씠�룞(�뙆�씪硫뷀�,由ы꽩�뜲�씠��)�떆�궎湲곗쐞�븳媛앹껜 
+		- member �뀒�씠釉붿쓽 而щ읆怨� �룞�씪�븳�닔�쓽 硫ㅻ쾭蹂��닔瑜쇨�吏��뒗媛앹껜
 	*/
 	/*
-	이름         널?       유형            
+	�씠由�         �꼸?       �쑀�삎            
 	---------- -------- ------------- 
 	M_ID       NOT NULL VARCHAR2(20)  
 	M_PASSWORD          VARCHAR2(20)  
@@ -20,11 +20,40 @@ public class Member {
 	M_MARRIED           CHAR(1)       
 	M_REGDATE           DATE     
 	 */
+	
+	
+	
 	private String m_id;
 	private String m_password;
 	private String m_name;
 	private String m_address;
 	private int m_age;
+	private char m_married;
+	public char getM_married() {
+		return m_married;
+	}
+	
+	public Member() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
+	public Member(String m_id, String m_password, String m_name, String m_address, int m_age, char m_married,
+			Date m_regdate) {
+		super();
+		this.m_id = m_id;
+		this.m_password = m_password;
+		this.m_name = m_name;
+		this.m_address = m_address;
+		this.m_age = m_age;
+		this.m_married = m_married;
+		this.m_regdate = m_regdate;
+	}
+
+	public void setM_married(char m_married) {
+		this.m_married = m_married;
+	}
 	private Date m_regdate;
 	public String getM_id() {
 		return m_id;

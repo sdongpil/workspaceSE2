@@ -51,7 +51,8 @@ public class MemberDao {
 		String password = "jdeveloper25";
 		
 
-		String updateSql = "update set member m_id = '"+ member.getM_id()"'+'",
+		String updateSql = "update  member set m_id = '"+ member.getM_id()+"', m_password = '"+ member.getM_password()+"', m_name = '"+member.getM_name()+"'
+				
 				;
 		
 

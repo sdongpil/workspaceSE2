@@ -19,6 +19,8 @@ public class GuestServiceTestMain {
 		System.out.println("4.방명록1개보기");
 		System.out.println("5.방명록이름으로검색 보기");
 		System.out.println("6.방명록 리스트보기");
+		
+		
 	}
 
 }

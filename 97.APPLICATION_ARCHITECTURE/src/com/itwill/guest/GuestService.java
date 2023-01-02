@@ -29,6 +29,16 @@ public class GuestService {
 		Guest g = guestDao.findByPrimaryKey(no);
 		return g;
 	}
+	
+	/*
+	 * 방명록 이름으로 보
+	 */
+	
+	public int guestUpdate (Guest gg) throws Exception{
+		
+	int rowCount = guestDao.update(gg);
+		return rowCount;
+	}
 
 	/*
 	 * 방명록번호로삭제

@@ -1,5 +1,6 @@
 package com.itwill.guest.test;
 
+import com.itwill.guest.Guest;
 import com.itwill.guest.GuestService;
 
 public class GuestServiceTestMain {
@@ -7,7 +8,13 @@ public class GuestServiceTestMain {
 	public static void main(String[] args)  throws Exception{
 		GuestService guestService=new GuestService();
 		System.out.println("1.방명록쓰기");
+		Guest g = new Guest(35, "손",null , "@naver", "aa", "bb", "cc");
+		guestService.guestWrite(g);
+		
+		
 		System.out.println("2.방명록수정");
+		
+		guestService.
 		System.out.println("3.방명록삭제");
 		System.out.println("4.방명록1개보기");
 		System.out.println("5.방명록이름으로검색 보기");

@@ -1,0 +1,6 @@
+1.클래스 
+  AddressService.java
+2.AddressDao 객체를 멤버필드로 선언
+3.AddressService클래스생성자에서  AddressDao 객체생성
+4.클라이언트 요구사항분석시 도출된 단위업무당 한개의 메소드생성
+5.메소드 인자반환타입

@@ -1,0 +1,4 @@
+/*
+VO(Value Object),DTO(Data Transfer Object)
+  	
+ */

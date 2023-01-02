@@ -23,6 +23,7 @@ public class ResultSetMain {
 		String selectSql="select no,name,short_desc,price,ipgo_date from product";
 		Connection con=dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(selectSql);
+		
 		ResultSet rs=pstmt.executeQuery();
 		System.out.println("-------------ResultSet.get타입(\"컬럼이름\")---------------");
 		while(rs.next()) {
@@ -70,20 +71,25 @@ public class ResultSetMain {
 		}
 		rs.close();
 		System.out.println("-------------ResultSet.getString(\"컬럼이름\")---------------");
-		
 		rs=pstmt.executeQuery();
 		
-		
 		while(rs.next()) {
-			String noStr = rs.getString("no");
-			String name = rs.getString("no");
-			String short_desc = rs.getString("no");
-			String priceSr = rs.getString("no");
-			String ipgo_dateStr = rs.getString("no");
-			System.out.println(noStr);
-			
+			String noStr=rs.getString("no");
+			String name=rs.getString("name");
+			String short_desc=rs.getString("short_desc");
+			String priceStr=rs.getString("price");
+			String ipgo_dateStr=rs.getString("ipgo_date");
+			System.out.println(noStr+"\t"+name+"\t"+short_desc+"\t"+priceStr+"\t"+ipgo_dateStr);
 		}
 		rs.close();
+		
+		
+		
+		
+		
+		
+		
+		
 		dataSource.close(con);
 	}
 

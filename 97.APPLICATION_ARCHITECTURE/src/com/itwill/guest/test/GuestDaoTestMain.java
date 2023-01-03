@@ -33,8 +33,8 @@ public class GuestDaoTestMain {
 //			
 		
 		System.out.println("6.findbyGuestName");
-		List a = guestDao.findByGuestName("김봉선");
-		System.out.println(a);
+		List a1 = guestDao.findByGuestName("김봉선");
+		System.out.println(a1);
 		
 	}
 

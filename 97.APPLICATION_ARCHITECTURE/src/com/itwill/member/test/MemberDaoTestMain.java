@@ -28,7 +28,7 @@ public class MemberDaoTestMain {
 		
 		
 //		System.out.println("2.update   --> ");
-//		Member m =  new Member("fff","1234","dongpil","seoul",2,"F",new SimpleDateFormat("yyyy/MM/dd").parse("2013/06/16"));
+//		Member m =  new Member("fff","1234","dongpil","seoul",2,"F",null);
 //		memberDao.update(m);
 		
 		

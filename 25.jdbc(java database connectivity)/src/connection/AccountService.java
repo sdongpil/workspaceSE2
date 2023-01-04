@@ -12,6 +12,7 @@ public class AccountService {
 			dataSource=new DataSource();
 		}
 		/*
+		 * sout
 		 * 모든계좌의 잔고를 balance만큼 갱신
 		 */
 		public void updateBalance(int balance) {

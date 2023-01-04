@@ -1,5 +1,7 @@
 package com.itwill.member;
 
+import java.util.List;
+
 public class MemberService {
 
 	private MemberDao memberDao;
@@ -97,6 +99,11 @@ public class MemberService {
 	
 	public int memberDelete(String id) throws Exception {
 		return memberDao.delete(id);
+	}
+
+	public List<Member> memberList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	/* admin

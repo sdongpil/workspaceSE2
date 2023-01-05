@@ -68,18 +68,15 @@ public class Cart {
 		this.userid = userid;
 	}
 
-	public int getP_no() {
-		return p_no;
-	}
 
-	public void setP_no(int p_no) {
-		this.p_no = p_no;
-	}
 
 	@Override
 	public String toString() {
-		return "Cart [cart_no=" + cart_no + ", cart_qty=" + cart_qty + ", userid=" + userid + ", p_no=" + p_no + "]";
+		return "Cart [cart_no=" + cart_no + ", cart_qty=" + cart_qty + ", userid=" + userid + ", product=" + product
+				+ "]";
 	}
+
+	
 	
 	
 	

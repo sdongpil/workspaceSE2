@@ -15,8 +15,8 @@ public class MemberDaoTestMain {
 		MemberDao memberDao=new MemberDao();
 		
 //		System.out.println("0.delete   --> ");
-//		rowCount = memberDao.delete("aaaa");
-//		System.out.println(rowCount);
+		rowCount = memberDao.delete("aaaa");
+		System.out.println(rowCount);
 		
 		
 //		

@@ -52,5 +52,30 @@ public class EmpDao {
 		return rowCount;
 		
 	}
+	
+	public int update (Emp emp) throws Exception {
+		
+		Connection con = datasource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(EmpSql.EMP_UPDATE);
+		
+		pstmt.setInt(1, emp.getEmpno());
+		pstmt.setString(2, emp.getEname());
+		pstmt.setString(3, emp.getJob());
+		pstmt.setInt(4, emp.getMgr());
+		pstmt.setDate(5, (Date) emp.getHiredate());
+		pstmt.setInt(6, emp.getSal());
+		pstmt.setInt(7, emp.getCommon());
+		pstmt.setInt(8, emp.getDeptno());
+		
+		int rowCount = pstmt.executeUpdate();
+		
+		pstmt.close();
+		datasource.close(con);
+		
+		
+		
+		return 0;
+		
+	}
 
 }

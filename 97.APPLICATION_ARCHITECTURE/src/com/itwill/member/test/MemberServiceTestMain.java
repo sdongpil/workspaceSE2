@@ -34,8 +34,6 @@ public class MemberServiceTestMain {
 	System.out.println(memberService.login("bbbb", "1234"));
 	
 	
-	
-	
 
 }
 }

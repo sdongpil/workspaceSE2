@@ -1,10 +1,13 @@
-package com.itwill.shop.user;
+package com.itwill.shop.user.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.itwill.shop.user.User;
+import com.itwill.shop.user.UserDao;
 
-public class UserTestMain {
+
+public class UserDaoTestMain {
 
 	public static void main(String[] args) throws Exception {
 			System.out.println("a");
@@ -23,8 +26,8 @@ public class UserTestMain {
 ////		
 ////		
 //		
-//		int row2 = userdao.delete("dp");
-//		System.out.println(row2);
+		int row2 = userdao.delete("dp");
+		System.out.println(row2);
 //		
 		System.out.println("3.selectById-> ");
 		User mm = userdao.select_by_id("dp");

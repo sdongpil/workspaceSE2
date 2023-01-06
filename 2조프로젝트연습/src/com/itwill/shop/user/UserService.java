@@ -3,6 +3,7 @@ package com.itwill.shop.user;
 import java.io.IOException;
 
 
+
 public class UserService {
 	
 	private UserDao userDao;
@@ -27,5 +28,32 @@ public class UserService {
 		return isSucces;
 
 	}
+	
+	
+	public int login(String id, String pw) throws Exception {
+
+		/*
+		 * 0:성공 1:아이디존재안함 2:패스워드 불일치
+		 * 
+		 */
+		int loginResult = -999;
+
+		User findUser = userDao.select_by_id(id);
+
+		if (findUser == null) {
+			loginResult = 1;
+		} else {
+			if (pw.equals(findUser.getUser_pw())) {
+				loginResult = 0 ;
+				
+			}else {
+				loginResult = 2;
+			}
+		}
+
+		return loginResult;
+	}
+	
+	
 
 }

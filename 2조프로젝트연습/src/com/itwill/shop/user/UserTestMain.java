@@ -12,9 +12,9 @@ public class UserTestMain {
 		int row =0;
 		UserDao userdao = new UserDao();
 		
-//		User  user = new User("dpss", "12311", "dongpil11", "01011", "서11", "s1d1hjko"); 
-//		 row = userdao.insert(user);
-//		System.out.println(row);
+		User  user = new User("kim", "12311", "dongpil11", "01011", "서11", "s1d1hjko"); 
+		 row = userdao.insert(user);
+		System.out.println(row);
 //		
 ////		
 //		User user2 = new User("dp", "1231112", "dongp21i", "02110", "서22", "2sdjko"); 

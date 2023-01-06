@@ -22,13 +22,9 @@ public class Order {
 	private String userid;
 	/***********List<OrderItem>****/
 	private List<OrderItem> orderItemList;
-	
-	
 	public Order() {
 		orderItemList=new ArrayList<OrderItem>();
 	}
-	
-	
 	public Order(int o_no, String o_desc, 
 				Date o_date, int o_price,
 				String userid) {
@@ -79,11 +75,12 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [o_no=" + o_no + ", o_desc=" + o_desc + ", o_date=" + o_date + ", o_price=" + o_price
-				+ ", userid=" + userid + ", orderItemList=" + orderItemList + "]";
+				+ ", userid=" + userid + ", orderItemList=" + orderItemList + "]\n";
 	}
 	
 	
 }
+
 
 
 

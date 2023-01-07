@@ -27,7 +27,7 @@ public class UserTestMain {
 //		System.out.println(row2);
 //		
 		System.out.println("3.selectById-> ");
-		User mm = userdao.select_by_id("dp");
+		User mm = userdao.findByPrimaryKey("dp");
 		System.out.println(mm);
 //		
 //		System.out.println("4.selectAll--> ");

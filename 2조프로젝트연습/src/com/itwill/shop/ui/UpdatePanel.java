@@ -25,6 +25,8 @@ public class UpdatePanel extends JPanel {
 	private JTextField updateEmail_TF;
 	private JTextField updateName_TF;
 	private JTextField updateLoc_TF;
+	private JTextField idTF;
+	private JLabel idMsgLB;
 
 	/********** 멤버서비스 객체선언 *************/
 	private UserService userService;
@@ -126,22 +128,20 @@ public class UpdatePanel extends JPanel {
 
 				try {
 					String id = updateID_TF.getText();
-					// String password = updatePassword_TF.getText();
-
-					String phoneNumber = updatePhone_TF.getText();
-					String pw = updatePassword_TF.getText();
-
+					String pw = new String(updatePassword_TF.getPassword());
 					String name = updateName_TF.getText();
-					String email = updateEmail_TF.getText();
+					String phoneNumber = updatePhone_TF.getText();
 					String loc = updateLoc_TF.getText();
+					String email = updateEmail_TF.getText();
 
 					if (id.equals("") || pw.equals("") || name.equals("") || phoneNumber.equals("") || loc.equals("")
 							|| email.equals("")) {
-						JOptionPane.showMessageDialog(null, "내용을 입력하세요.");
+						idMsgLB.setText("내용을 입력하세요.");
+						 idTF.requestFocus();
 						return;
 					}
 					User updateUser2 = new User(id, pw, name, phoneNumber, loc, email);
-					int updateCheck;
+					int updateCheck =0;
 
 					updateCheck = userService.update(updateUser2);
 
@@ -154,12 +154,11 @@ public class UpdatePanel extends JPanel {
 					} else if (updateCheck == -4) {
 						JOptionPane.showMessageDialog(null, "특수문자 !,~,@,#,$,*,^ 사용하세요");
 					} else {
-						JOptionPane.showMessageDialog(null, "회원정보 수정완료");
+						System.out.println("회원정보 수정완료");
 					}
 					
 				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					System.out.println(e1.getMessage());;
+					System.out.println(e1.getMessage());
 				}
 			}
 		});

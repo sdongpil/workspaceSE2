@@ -66,7 +66,7 @@ public class UserService {
 			return -4;
 		} else {
 			int rowCount = userDao.insert(user);
-			return userDao.update(user);
+			return rowCount;
 		}
 
 	}

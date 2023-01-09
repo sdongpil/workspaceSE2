@@ -14,21 +14,21 @@ public class UserDaoTestMain {
 		UserDao userdao = new UserDao();
 
 		System.out.println("1.insert");
-		User user = new User("book4", "4444", "손동필", "010-4444-4444", "서울시 강북구", "book4@korea.com");
+		User user = new User("book19", "4444", "손동필", "010-4444-4444", "서울시 강북구", "book4@korea.com");
 		rowCount = userdao.insert(user);
 		System.out.println(rowCount);
 
 		System.out.println("2.update");
-		User user2 = new User("book2", "1234", "2순신", "010-2222-2222", "서울 강서구", "boo2@naver.com");
+		User user2 = new User("book2", "1234", "3순신", "010-2222-2222", "서울 강서구", "boo2@naver.com");
 		rowCount = userdao.update(user2);
 		System.out.println(rowCount);
 
 		System.out.println("3.delete");
-		rowCount = userdao.delete("book4");
+		rowCount = userdao.delete("book3");
 		System.out.println(rowCount);
 
 		System.out.println("3.findByPrimaryKey- ");
-		User user3 = userdao.findByPrimaryKey("book1");
+		User user3 = userdao.findByPrimaryKey("book19");
 		System.out.println(user3);
 
 		System.out.println("4.countByUserId");

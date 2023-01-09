@@ -1,16 +1,16 @@
-package com.itwill.shop.user;
+
 
 import java.io.IOException;
 import java.util.Arrays;
 
-public class UserService {
+public class UserService2 {
 	private static final String LOWER_LETTER = ".*[a-z].*";
 	private static final String UPPER_LETTER = ".*[A-Z].*";
 	private static final String SPECIAL_CHARACTERS = ".*[!,~,@,#,$,*,^].*";
 
 	private UserDao userDao;
 
-	public UserService() throws Exception {
+	public UserService2() throws Exception {
 		this.userDao = new UserDao();
 	}
 
@@ -18,16 +18,20 @@ public class UserService {
 	public int create(User user) throws Exception {
 		if (userDao.countByUserId(user.getUserId()) >= 1) {
 			return -1;
-		} else if (user.getUserPw() == null || user.getUserPw().length() < 8 || user.getUserPw().length() > 16) {
-			return -2;
-		} else if (!user.getUserPw().matches(LOWER_LETTER) || !user.getUserPw().matches(UPPER_LETTER)) {
-			return -3;
-		} else if (!user.getUserPw().matches(SPECIAL_CHARACTERS)) {
-			return -4;
-		} else {
-			int rowCount = userDao.insert(user);
-			return rowCount;
 		}
+
+		try {
+			if (user.getUserPw() == null || user.getUserPw().length() < 8 || user.getUserPw().length() > 16 
+					||!user.getUserPw().matches(LOWER_LETTER) || !user.getUserPw().matches(UPPER_LETTER) || 
+					!user.getUserPw().matches(SPECIAL_CHARACTERS)) ;
+			
+		} catch (Exception e) {
+			System.out.println("비밀번호 오류");
+		}
+
+		int rowCount = userDao.insert(user);
+		return rowCount;
+
 	}
 
 	public int login(String id, String pw) throws Exception {

@@ -56,14 +56,26 @@ public class UserService {
 	 * 회원수정
 	 */
 	public int update(User user) throws Exception {
-		return userDao.update(user);
+		if (userDao.countByUserId(user.getUserId()) < 1) {
+			return -1;
+		} else if (user.getUserPw() == null || user.getUserPw().length() < 8 || user.getUserPw().length() > 16) {
+			return -2;
+		} else if (!user.getUserPw().matches(LOWER_LETTER) || !user.getUserPw().matches(UPPER_LETTER)) {
+			return -3;
+		} else if (!user.getUserPw().matches(SPECIAL_CHARACTERS)) {
+			return -4;
+		} else {
+			int rowCount = userDao.insert(user);
+			return userDao.update(user);
+		}
+
 	}
 
 	/*
 	 * 회원탈퇴
 	 */
-	public int remove(String userId) throws Exception {
-		return userDao.delete(userId);
+	public int remove(String userId, String userPw) throws Exception {
+		return userDao.delete(userId, userPw);
 	}
 
 	// 아이디 찾기
@@ -75,6 +87,16 @@ public class UserService {
 	// 비밀번호 찾기
 	public String FindPw(String userId, String userName) throws Exception {
 		return userDao.findByUserPw(userId, userName);
+	}
+
+	// 이메일 중복체크
+	public boolean emailDuplicateCheck(User user) throws Exception {
+		boolean duplicateCheck = false;
+		if (userDao.countByUserEmail(user.getUserEmail()) >= 1) {
+			duplicateCheck = true;
+			return duplicateCheck;
+		}
+		return duplicateCheck;
 	}
 
 }

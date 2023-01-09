@@ -54,11 +54,12 @@ public class UserDao {
 		return rowCount;
 	}
 
-	public int delete(String userId) throws Exception {
+	public int delete(String userId, String userPw) throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(UserSQL.USERINFO_DELETE);
 
 		pstmt.setString(1, userId);
+		pstmt.setString(2, userPw);
 
 		int rowCount = pstmt.executeUpdate();
 
@@ -100,7 +101,18 @@ public class UserDao {
 		return userCount;
 
 	}
-	
+
+	public int countByUserEmail(String userEmail) throws Exception {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(UserSQL.USER_SELECT_BY_EMAIL_COUNT);
+		pstmt.setString(1, userEmail);
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		int userCount = rs.getInt(1);
+		return userCount;
+
+	}
+
 	/*
 	 * 비밀번호 유효성 체크
 	 */
@@ -108,9 +120,7 @@ public class UserDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(UserSQL.USERINFO_PW_TEST);
 
-		
 		pstmt.setString(1, user.getUserPw());
-		
 
 		int rowCount = pstmt.executeUpdate();
 
@@ -119,9 +129,7 @@ public class UserDao {
 
 		return rowCount;
 
-
 	}
-	
 
 	// 아이디찾기
 	public String findByUserId(String userName, String userPhone) throws Exception {
@@ -129,8 +137,8 @@ public class UserDao {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(UserSQL.USER_FIND_BY_ID);
 
-		pstmt.setString(1,userName);
-		pstmt.setString(2,userPhone);
+		pstmt.setString(1, userName);
+		pstmt.setString(2, userPhone);
 
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {

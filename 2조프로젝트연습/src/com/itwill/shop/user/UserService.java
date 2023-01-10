@@ -65,7 +65,7 @@ public class UserService {
 		} else if (!user.getUserPw().matches(SPECIAL_CHARACTERS)) {
 			return -4;
 		} else {
-			int rowCount = userDao.insert(user);
+			int rowCount = userDao.update(user);
 			return rowCount;
 		}
 
@@ -79,13 +79,13 @@ public class UserService {
 	}
 
 	// 아이디 찾기
-	public String FindId(String userName, String userPhone) throws Exception {
+	public String findId(String userName, String userPhone) throws Exception {
 		return userDao.findByUserId(userName, userPhone);
 
 	}
 
 	// 비밀번호 찾기
-	public String FindPw(String userId, String userName) throws Exception {
+	public String findPw(String userId, String userName) throws Exception {
 		return userDao.findByUserPw(userId, userName);
 	}
 
@@ -97,6 +97,16 @@ public class UserService {
 			return duplicateCheck;
 		}
 		return duplicateCheck;
+		
+	}
+	
+	//아이디 중복확인 
+	public boolean idCheck (String userId) throws Exception {
+		boolean check = false;
+		if(userDao.countByUserId(userId)>=1) {
+			check = true;
+		}
+		return check;
 	}
 
 }

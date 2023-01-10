@@ -36,8 +36,9 @@ public class UpdatePanel extends JPanel {
 
 	/**
 	 * Create the panel.
+	 * @throws Exception 
 	 */
-	public UpdatePanel() {
+	public UpdatePanel() throws Exception {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 
@@ -123,9 +124,7 @@ public class UpdatePanel extends JPanel {
 		updateBtn.setBounds(137, 413, 180, 23);
 		add(updateBtn);
 		updateBtn.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-
 				try {
 					String id = updateID_TF.getText();
 					String pw = new String(updatePassword_TF.getPassword());
@@ -137,7 +136,7 @@ public class UpdatePanel extends JPanel {
 					if (id.equals("") || pw.equals("") || name.equals("") || phoneNumber.equals("") || loc.equals("")
 							|| email.equals("")) {
 						idMsgLB.setText("내용을 입력하세요.");
-						 idTF.requestFocus();
+						 updateID_TF.requestFocus();
 						return;
 					}
 					User updateUser2 = new User(id, pw, name, phoneNumber, loc, email);
@@ -154,7 +153,7 @@ public class UpdatePanel extends JPanel {
 					} else if (updateCheck == -4) {
 						JOptionPane.showMessageDialog(null, "특수문자 !,~,@,#,$,*,^ 사용하세요");
 					} else {
-						System.out.println("회원정보 수정완료");
+						JOptionPane.showMessageDialog(null, "회원정보 수정완료");
 					}
 					
 				} catch (Exception e1) {
@@ -170,20 +169,19 @@ public class UpdatePanel extends JPanel {
 		JButton deleteBtn = new JButton("회원 탈퇴하기");
 		deleteBtn.setBounds(137, 464, 180, 23);
 		add(deleteBtn);
-	}
-
-	/******************* 로그인성공시호출할메쏘드 ******************/
-	public void loginProcess(String userId) throws Exception {
-		/*
-		 * 1.로그인멤버객체 저장 2.MemberMainFrame타이틀변경 3.로그인,회원가입 tab 불활성화 4.로그아웃메뉴아이템 활성화
-		 * 5.회원리스트탭 활성화
-		 */
-		loginUser = new User("son", null, null, null, null, null);
-		// setTitle(loginMember.getMember_id()); --탭 생성시
-
-	}
 	
-	public void userService() throws Exception {
+	
+
+
+	
+		
+		
+		loginUser = new User("son", null, null, null, null, null);
+	
+
+	
+	
+	
 		userService = new UserService();
 	}
-}// 클래스끝
+}

@@ -35,8 +35,9 @@ public class ShopMainFrame extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Exception 
 	 */
-	public ShopMainFrame() {
+	public ShopMainFrame() throws Exception {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 415, 652);
 		contentPane = new JPanel();

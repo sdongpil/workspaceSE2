@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import com.itwill.shop.user.User;
+import com.itwill.shop.user.UserService;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -16,6 +20,8 @@ import javax.swing.JTabbedPane;
 public class ShopMainFrame extends JFrame {
 
 	private JPanel contentPane;
+	private UserService userService;
+	private User user;
 
 	/**
 	 * Launch the application.
@@ -91,7 +97,8 @@ public class ShopMainFrame extends JFrame {
 		JTabbedPane memberTabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		shopTabbedPane.addTab("회원", null, memberTabbedPane, null);
 		
-	
+	 userService = new UserService();
+	 user = new User("book!", null, null, null, null, null);
 	}
 
 }

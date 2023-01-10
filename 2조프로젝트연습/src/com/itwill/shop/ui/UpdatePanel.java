@@ -34,13 +34,15 @@ public class UpdatePanel extends JPanel {
 	private UserService userService;
 
 	/********** 로그인한 회원 ******************/
-	private User loginUser=null;
+	User loginUser = new User("book3", "1234", "dp", "010", "address", "email");
+
 //	private int loginUser;
 	private JTextField updatePassword_TF;
 
 	/**
 	 * Create the panel.
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	public UpdatePanel() throws Exception {
 		setBackground(new Color(255, 255, 255));
@@ -62,17 +64,17 @@ public class UpdatePanel extends JPanel {
 		updateID_TF.setBackground(Color.WHITE);
 		updateID_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateID_TF.setColumns(10);
-		updateID_TF.setBounds(80, 67, 143, 21);
+		updateID_TF.setBounds(80, 70, 143, 21);
 		add(updateID_TF);
 
 		JLabel updatePassword_LB = new JLabel("비밀번호변경");
 		updatePassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updatePassword_LB.setBounds(0, 110, 68, 15);
+		updatePassword_LB.setBounds(0, 100, 78, 15);
 		add(updatePassword_LB);
 
 		JLabel updatePhone_LB = new JLabel("핸드폰");
 		updatePhone_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updatePhone_LB.setBounds(12, 172, 57, 15);
+		updatePhone_LB.setBounds(12, 160, 57, 15);
 		add(updatePhone_LB);
 
 		updatePhone_TF = new JTextField();
@@ -80,12 +82,12 @@ public class UpdatePanel extends JPanel {
 		updatePhone_TF.setBackground(Color.WHITE);
 		updatePhone_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updatePhone_TF.setColumns(10);
-		updatePhone_TF.setBounds(98, 168, 143, 21);
+		updatePhone_TF.setBounds(80, 160, 143, 21);
 		add(updatePhone_TF);
 
 		JLabel updateEmail_LB = new JLabel("이메일");
 		updateEmail_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateEmail_LB.setBounds(12, 231, 57, 15);
+		updateEmail_LB.setBounds(12, 220, 57, 15);
 		add(updateEmail_LB);
 
 		updateEmail_TF = new JTextField();
@@ -93,25 +95,25 @@ public class UpdatePanel extends JPanel {
 		updateEmail_TF.setBackground(Color.WHITE);
 		updateEmail_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateEmail_TF.setColumns(10);
-		updateEmail_TF.setBounds(98, 227, 143, 21);
+		updateEmail_TF.setBounds(80, 220, 143, 21);
 		add(updateEmail_TF);
 
 		JLabel updateName_LB = new JLabel("이름");
 		updateName_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateName_LB.setBounds(12, 145, 57, 15);
+		updateName_LB.setBounds(12, 130, 57, 15);
 		add(updateName_LB);
 
 		updateName_TF = new JTextField();
-		updateName_TF.setEditable(false);
+		updateName_TF.setEnabled(false);
 		updateName_TF.setBackground(Color.WHITE);
 		updateName_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateName_TF.setColumns(10);
-		updateName_TF.setBounds(80, 135, 142, 21);
+		updateName_TF.setBounds(80, 130, 142, 21);
 		add(updateName_TF);
 
 		JLabel updateLoc_LB = new JLabel("주소");
 		updateLoc_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateLoc_LB.setBounds(12, 203, 57, 15);
+		updateLoc_LB.setBounds(12, 190, 57, 15);
 		add(updateLoc_LB);
 
 		updateLoc_TF = new JTextField();
@@ -119,11 +121,25 @@ public class UpdatePanel extends JPanel {
 		updateLoc_TF.setBackground(Color.WHITE);
 		updateLoc_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateLoc_TF.setColumns(10);
-		updateLoc_TF.setBounds(99, 196, 142, 21);
+		updateLoc_TF.setBounds(80, 190, 142, 21);
 		add(updateLoc_TF);
 
+		updateFormBtn = new JButton("수정폼");
+		updateFormBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String btnText = updateFormBtn.getText();
+				if (btnText.equals("수정폼")) {
+					updateFormEnable(true);
+				} else if (btnText.equals("수정취소")) {
+					displayMemberInfo(loginUser);
+					updateFormEnable(false);
+				}
+
+			}
+		});
+
 		JButton updateBtn = new JButton("수정");
-		updateBtn.setBounds(144, 273, 74, 21);
+		updateBtn.setBounds(121, 273, 102, 21);
 		add(updateBtn);
 		updateBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -138,11 +154,11 @@ public class UpdatePanel extends JPanel {
 					if (id.equals("") || pw.equals("") || name.equals("") || phoneNumber.equals("") || loc.equals("")
 							|| email.equals("")) {
 						idMsgLB.setText("내용을 입력하세요.");
-						 updateID_TF.requestFocus();
+						updateID_TF.requestFocus();
 						return;
 					}
 					User updateUser2 = new User(id, pw, name, phoneNumber, loc, email);
-					int updateCheck =0;
+					int updateCheck = 0;
 
 					updateCheck = userService.update(updateUser2);
 
@@ -165,76 +181,55 @@ public class UpdatePanel extends JPanel {
 			}
 		});
 
-		JButton updateFormBtn = new JButton("수정폼");
-		updateFormBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String btnText=updateFormBtn.getText();
-				if(btnText.equals("수정폼")) {
-					updateFormEnable(true);
-				}else if(btnText.equals("수정취소")) {
-					displayMemberInfo(loginUser);
-					updateFormEnable(false);
-				}
-				
-				
-			}
-		});
-		
-		
-		
-		updateFormBtn.setBounds(35, 272, 74, 22);
+		updateFormBtn.setBounds(12, 273, 97, 21);
 		add(updateFormBtn);
-		
+
 		updatePassword_TF = new JTextField();
 		updatePassword_TF.setEditable(false);
 		updatePassword_TF.setBackground(Color.WHITE);
 		updatePassword_TF.setFont(new Font("Dialog", Font.PLAIN, 12));
-		updatePassword_TF.setBounds(90, 108, 143, 19);
+		updatePassword_TF.setBounds(80, 100, 143, 21);
 		add(updatePassword_TF);
 		updatePassword_TF.setColumns(10);
-			
-	
-	
+
 		userService = new UserService();
 	}
-	
+
 	private void updateFormEnable(boolean b) {
-		if(b) {
-			//활성화
-			//infoIdTF.setEnabled(true);
+		if (b) {
+			// 활성화
+//			updateID_TF.setEditable(true);
+//			updateName_TF.setEditable(true);
 			updatePassword_TF.setEditable(true);
-			updateName_TF.setEditable(true);
 			updatePhone_TF.setEditable(true);
-			updateEmail_TF.setEditable(true);
 			updateLoc_TF.setEditable(true);
-			
+			updateEmail_TF.setEditable(true);
+
 			updateFormBtn.setText("수정취소");
 			updateBtn.setEnabled(true);
-		}else {
-			//불활성화
+		} else {
+			// 불활성화
 			updateID_TF.setEnabled(false);
-			updatePassword_TF.setEnabled(false);
-			updateName_TF.setEditable(false);
-			updateLoc_TF.setEditable(false);
+			updateName_TF.setEnabled(false);
+			updatePassword_TF.setEditable(false);
 			updatePhone_TF.setEditable(false);
+			updateLoc_TF.setEditable(false);
 			updateEmail_TF.setEditable(false);
-			
-			updateBtn.setText("수정폼");
+
+			updateFormBtn.setText("수정폼");
 			updateBtn.setEnabled(false);
 		}
-		
+
 	}
-	
+
 	private void displayMemberInfo(User user) {
-		/****회원상세데이타보여주기*****/
+		/**** 회원상세데이타보여주기 *****/
 		updateID_TF.setText(user.getUserId());
 		updatePassword_TF.setText(user.getUserPw());
 		updateName_TF.setText(user.getUserName());
-		updateLoc_TF.setText(user.getUserAddress());
 		updatePhone_TF.setText(user.getUserPhone());
+		updateLoc_TF.setText(user.getUserAddress());
 		updateEmail_TF.setText(user.getUserEmail());
-		
-	
-		
+
 	}
 }

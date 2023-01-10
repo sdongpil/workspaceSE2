@@ -97,13 +97,13 @@ public class UserService {
 			return duplicateCheck;
 		}
 		return duplicateCheck;
-		
+
 	}
-	
-	//아이디 중복확인 
-	public boolean idCheck (String userId) throws Exception {
+
+	// 아이디 중복확인
+	public boolean idCheck(String userId) throws Exception {
 		boolean check = false;
-		if(userDao.countByUserId(userId)>=1) {
+		if (userDao.countByUserId(userId) >= 1) {
 			check = true;
 		}
 		return check;

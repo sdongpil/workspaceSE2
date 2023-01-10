@@ -65,7 +65,7 @@ public class UserServiceTestMain {
 			System.out.println("회원정보 수정완료" + updateUser);
 		}
 
-		//  회원탈퇴
+		// 회원탈퇴
 //		int delete = userService.remove("book21","123");
 //		if (delete == 1) {
 //			System.out.println("아이디가 삭제되었습니다");
@@ -97,11 +97,9 @@ public class UserServiceTestMain {
 //			System.out.println("사용가능한 이메일 입니다.");
 //		}
 
-		
 		boolean idCheck = userService.idCheck("book1");
 		System.out.println(idCheck);
-		
-		
+
 	}
 
 }

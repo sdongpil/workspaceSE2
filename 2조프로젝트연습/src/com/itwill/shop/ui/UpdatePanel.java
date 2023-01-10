@@ -47,14 +47,14 @@ public class UpdatePanel extends JPanel {
 		setLayout(null);
 
 		JLabel updateTitle_LB = new JLabel("회원정보수정");
-		updateTitle_LB.setBounds(35, 25, 188, 40);
+		updateTitle_LB.setBounds(35, 6, 188, 40);
 		updateTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
 		updateTitle_LB.setFont(new Font("Dialog", Font.BOLD, 20));
 		add(updateTitle_LB);
 
 		JLabel updateID_LB = new JLabel("아이디");
 		updateID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateID_LB.setBounds(12, 75, 57, 15);
+		updateID_LB.setBounds(12, 70, 57, 15);
 		add(updateID_LB);
 
 		updateID_TF = new JTextField();
@@ -62,12 +62,12 @@ public class UpdatePanel extends JPanel {
 		updateID_TF.setBackground(Color.WHITE);
 		updateID_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateID_TF.setColumns(10);
-		updateID_TF.setBounds(98, 75, 143, 21);
+		updateID_TF.setBounds(80, 67, 143, 21);
 		add(updateID_TF);
 
 		JLabel updatePassword_LB = new JLabel("비밀번호변경");
 		updatePassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updatePassword_LB.setBounds(0, 110, 82, 15);
+		updatePassword_LB.setBounds(0, 110, 68, 15);
 		add(updatePassword_LB);
 
 		JLabel updatePhone_LB = new JLabel("핸드폰");
@@ -98,7 +98,7 @@ public class UpdatePanel extends JPanel {
 
 		JLabel updateName_LB = new JLabel("이름");
 		updateName_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateName_LB.setBounds(12, 135, 57, 15);
+		updateName_LB.setBounds(12, 145, 57, 15);
 		add(updateName_LB);
 
 		updateName_TF = new JTextField();
@@ -106,7 +106,7 @@ public class UpdatePanel extends JPanel {
 		updateName_TF.setBackground(Color.WHITE);
 		updateName_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateName_TF.setColumns(10);
-		updateName_TF.setBounds(98, 131, 142, 21);
+		updateName_TF.setBounds(80, 135, 142, 21);
 		add(updateName_TF);
 
 		JLabel updateLoc_LB = new JLabel("주소");
@@ -189,7 +189,7 @@ public class UpdatePanel extends JPanel {
 		updatePassword_TF.setEditable(false);
 		updatePassword_TF.setBackground(Color.WHITE);
 		updatePassword_TF.setFont(new Font("Dialog", Font.PLAIN, 12));
-		updatePassword_TF.setBounds(98, 106, 143, 19);
+		updatePassword_TF.setBounds(90, 108, 143, 19);
 		add(updatePassword_TF);
 		updatePassword_TF.setColumns(10);
 			

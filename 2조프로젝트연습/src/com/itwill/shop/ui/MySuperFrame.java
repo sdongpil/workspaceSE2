@@ -56,7 +56,7 @@ public class MySuperFrame extends JFrame {
 		JoinPanel joinPanel = new JoinPanel();
 		memberTabbedPane.addTab("New tab", null, joinPanel, null);
 		
-		UpdatePanel updatePanel = new UpdatePanel();
+		UserUpdatePanel updatePanel = new UserUpdatePanel();
 		memberTabbedPane.addTab("New tab", null, updatePanel, null);
 	}
 }

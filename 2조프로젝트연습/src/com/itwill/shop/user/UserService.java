@@ -24,6 +24,8 @@ public class UserService {
 			return -3;
 		} else if (!user.getUserPw().matches(SPECIAL_CHARACTERS)) {
 			return -4;
+		} else if (userDao.countByUserEmail(user.getUserEmail()) >= 1) {
+			return -5;
 		} else {
 			int rowCount = userDao.insert(user);
 			return rowCount;

@@ -18,45 +18,45 @@ import javax.swing.SwingConstants;
 import com.itwill.shop.user.User;
 import com.itwill.shop.user.UserService;
 
-public class UpdatePanel extends JPanel {
-	private JTextField updateID_TF;
-	private JTextField updatePhone_TF;
-	private JTextField updateEmail_TF;
-	private JTextField updateName_TF;
-	private JTextField updateLoc_TF;
+public class UserUpdatePanel extends JPanel {
+	public JTextField updateID_TF;
+	public JTextField updatePhone_TF;
+	public JTextField updateEmail_TF;
+	public JTextField updateName_TF;
+	public JTextField updateLoc_TF;
 
-	private JButton updateFormBtn;
-	private JButton updateBtn;
-	private JTextField idTF;
-	private JLabel idMsgLB;
+	public JLabel updateTitle_LB;
+	public JButton updateFormBtn;
+	public JButton updateBtn;
+	public JTextField idTF;
+	public JLabel idMsgLB;
 
 	/********** 멤버서비스 객체선언 *************/
-	private UserService userService;
+	public UserService userService;
 
 	/********** 로그인한 회원 ******************/
 	User loginUser = new User("book3", "1234", "dp", "010", "address", "email");
 
-//	private int loginUser;
-	private JTextField updatePassword_TF;
+	public JTextField updatePassword_TF;
 
 	/**
 	 * Create the panel.
 	 * 
 	 * @throws Exception
 	 */
-	public UpdatePanel() throws Exception {
+	public UserUpdatePanel() throws Exception {
 		setBackground(new Color(255, 255, 255));
 		setLayout(null);
 
-		JLabel updateTitle_LB = new JLabel("회원정보수정");
-		updateTitle_LB.setBounds(35, 6, 188, 40);
+		updateTitle_LB = new JLabel("회원정보");
+		updateTitle_LB.setBounds(100, 6, 188, 40);
 		updateTitle_LB.setHorizontalAlignment(SwingConstants.CENTER);
 		updateTitle_LB.setFont(new Font("Dialog", Font.BOLD, 20));
 		add(updateTitle_LB);
 
 		JLabel updateID_LB = new JLabel("아이디");
 		updateID_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateID_LB.setBounds(12, 70, 57, 15);
+		updateID_LB.setBounds(70, 70, 38, 15);
 		add(updateID_LB);
 
 		updateID_TF = new JTextField();
@@ -64,17 +64,17 @@ public class UpdatePanel extends JPanel {
 		updateID_TF.setBackground(Color.WHITE);
 		updateID_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateID_TF.setColumns(10);
-		updateID_TF.setBounds(80, 70, 143, 21);
+		updateID_TF.setBounds(160, 70, 143, 21);
 		add(updateID_TF);
 
 		JLabel updatePassword_LB = new JLabel("비밀번호변경");
 		updatePassword_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updatePassword_LB.setBounds(0, 100, 78, 15);
+		updatePassword_LB.setBounds(70, 100, 78, 15);
 		add(updatePassword_LB);
 
 		JLabel updatePhone_LB = new JLabel("핸드폰");
 		updatePhone_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updatePhone_LB.setBounds(12, 160, 57, 15);
+		updatePhone_LB.setBounds(70, 160, 57, 15);
 		add(updatePhone_LB);
 
 		updatePhone_TF = new JTextField();
@@ -82,12 +82,12 @@ public class UpdatePanel extends JPanel {
 		updatePhone_TF.setBackground(Color.WHITE);
 		updatePhone_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updatePhone_TF.setColumns(10);
-		updatePhone_TF.setBounds(80, 160, 143, 21);
+		updatePhone_TF.setBounds(160, 160, 143, 21);
 		add(updatePhone_TF);
 
 		JLabel updateEmail_LB = new JLabel("이메일");
 		updateEmail_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateEmail_LB.setBounds(12, 220, 57, 15);
+		updateEmail_LB.setBounds(70, 220, 57, 15);
 		add(updateEmail_LB);
 
 		updateEmail_TF = new JTextField();
@@ -95,12 +95,12 @@ public class UpdatePanel extends JPanel {
 		updateEmail_TF.setBackground(Color.WHITE);
 		updateEmail_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateEmail_TF.setColumns(10);
-		updateEmail_TF.setBounds(80, 220, 143, 21);
+		updateEmail_TF.setBounds(160, 220, 143, 21);
 		add(updateEmail_TF);
 
 		JLabel updateName_LB = new JLabel("이름");
 		updateName_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateName_LB.setBounds(12, 130, 57, 15);
+		updateName_LB.setBounds(70, 130, 57, 15);
 		add(updateName_LB);
 
 		updateName_TF = new JTextField();
@@ -108,12 +108,12 @@ public class UpdatePanel extends JPanel {
 		updateName_TF.setBackground(Color.WHITE);
 		updateName_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateName_TF.setColumns(10);
-		updateName_TF.setBounds(80, 130, 142, 21);
+		updateName_TF.setBounds(160, 130, 142, 21);
 		add(updateName_TF);
 
 		JLabel updateLoc_LB = new JLabel("주소");
 		updateLoc_LB.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
-		updateLoc_LB.setBounds(12, 190, 57, 15);
+		updateLoc_LB.setBounds(70, 190, 57, 15);
 		add(updateLoc_LB);
 
 		updateLoc_TF = new JTextField();
@@ -121,7 +121,7 @@ public class UpdatePanel extends JPanel {
 		updateLoc_TF.setBackground(Color.WHITE);
 		updateLoc_TF.setFont(new Font("KoPubWorldDotum_Pro", Font.PLAIN, 12));
 		updateLoc_TF.setColumns(10);
-		updateLoc_TF.setBounds(80, 190, 142, 21);
+		updateLoc_TF.setBounds(160, 190, 142, 21);
 		add(updateLoc_TF);
 
 		updateFormBtn = new JButton("수정폼");
@@ -138,8 +138,8 @@ public class UpdatePanel extends JPanel {
 			}
 		});
 
-		JButton updateBtn = new JButton("수정");
-		updateBtn.setBounds(121, 273, 102, 21);
+		updateBtn = new JButton("수정");
+		updateBtn.setBounds(210, 273, 102, 21);
 		add(updateBtn);
 		updateBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -181,14 +181,14 @@ public class UpdatePanel extends JPanel {
 			}
 		});
 
-		updateFormBtn.setBounds(12, 273, 97, 21);
+		updateFormBtn.setBounds(100, 273, 97, 21);
 		add(updateFormBtn);
 
 		updatePassword_TF = new JTextField();
 		updatePassword_TF.setEditable(false);
 		updatePassword_TF.setBackground(Color.WHITE);
 		updatePassword_TF.setFont(new Font("Dialog", Font.PLAIN, 12));
-		updatePassword_TF.setBounds(80, 100, 143, 21);
+		updatePassword_TF.setBounds(160, 100, 143, 21);
 		add(updatePassword_TF);
 		updatePassword_TF.setColumns(10);
 
@@ -206,6 +206,7 @@ public class UpdatePanel extends JPanel {
 			updateEmail_TF.setEditable(true);
 
 			updateFormBtn.setText("수정취소");
+			updateTitle_LB.setText("회원정보수정");
 			updateBtn.setEnabled(true);
 		} else {
 			// 불활성화
@@ -215,8 +216,10 @@ public class UpdatePanel extends JPanel {
 			updatePhone_TF.setEditable(false);
 			updateLoc_TF.setEditable(false);
 			updateEmail_TF.setEditable(false);
-
+			
+			
 			updateFormBtn.setText("수정폼");
+			updateTitle_LB.setText("회원정보");
 			updateBtn.setEnabled(false);
 		}
 
